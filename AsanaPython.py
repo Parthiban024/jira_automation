@@ -138,5 +138,6 @@ def jira_webhook():
     return jsonify(result)
 
 if __name__ == "__main__":
-    print("Starting Jira to Asana sync Flask API...")
-    app.run(host="0.0.0.0", port=5000)
+    port = int(os.environ.get("PORT", 5000))  # Use Render-provided PORT, fallback to 5000 for local
+    print(f"Starting Jira to Asana sync Flask API on port {port}...")
+    app.run(host="0.0.0.0", port=port)
